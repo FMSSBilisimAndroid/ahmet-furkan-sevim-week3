@@ -19,6 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:background="#03A9F4"
+            android:contentDescription="@string/water_level_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -29,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginTop="94dp"
-            android:text="Merhaba! \nBugün su içtin mi?"
+            android:text="@string/merhaba_nbug_n_su_i_tin_mi"
             android:textColor="#ffffff"
             android:textSize="34sp"
             android:textStyle="bold"
@@ -42,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30sp"
             android:layout_marginTop="10dp"
-            android:text="Bugünkü su ihtiyacını karşılamak için \n3 litre daha su içmelesin."
+            android:text="@string/bug_nk_su_ihtiyac_n_kar_lamak_i_in_n3_litre_daha_su_i_melesin"
             android:textColor="#fff"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +73,7 @@
 
                 <TextView
                     style="@style/bottle_card_textView"
-                    android:text="200 ml" />
+                    android:text="@string/_200_ml" />
 
             </LinearLayout>
 
@@ -88,7 +89,7 @@
 
                 <TextView
                     style="@style/bottle_card_textView"
-                    android:text="500 ml" />
+                    android:text="@string/_500_ml" />
 
             </LinearLayout>
 
@@ -107,7 +108,7 @@
 
                 <TextView
                     style="@style/bottle_card_textView"
-                    android:text="1000 ml" />
+                    android:text="@string/_1000_ml" />
 
             </LinearLayout>
 
@@ -117,12 +118,12 @@
             android:id="@+id/clearAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/ic_clear"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toTopOf="parent" />
-
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/clear_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_clear" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

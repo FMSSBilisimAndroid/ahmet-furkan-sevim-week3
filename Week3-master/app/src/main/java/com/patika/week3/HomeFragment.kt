@@ -12,29 +12,30 @@ import kotlin.math.roundToInt
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    var targetWater = 0.0
+    private var targetWater = 0.0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+       // Create on click listeners for events
         binding.apply {
-            smallBottle.setOnClickListener{
+            smallBottle.setOnClickListener {
                 drinkWater(0.2)
             }
-            mediumBottle.setOnClickListener{
+            mediumBottle.setOnClickListener {
                 drinkWater(0.5)
             }
-            bigBottle.setOnClickListener{
+            bigBottle.setOnClickListener {
                 drinkWater(1.0)
             }
-            clearAll.setOnClickListener{
+            clearAll.setOnClickListener {
                 targetWater = 0.0
                 drinkWater(0.0)
             }
@@ -43,44 +44,51 @@ class HomeFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        // set data from saveInstanceState
         outState.putDouble("targetWater", targetWater)
     }
 
     override fun onViewStateRestored(savedInstanceState: Bundle?) {
         super.onViewStateRestored(savedInstanceState)
-        targetWater = savedInstanceState?.getDouble("targetWater", 0.0)?:0.0
+        // get data from saveInstanceState
+        targetWater = savedInstanceState?.getDouble("targetWater", 0.0) ?: 0.0
         drinkWater(0.0)
     }
 
-    fun backgroundColor(){
-        var screenHeight = Resources.getSystem().displayMetrics.heightPixels
-        var ratio =  targetWater / 3.0
-        var height = (screenHeight * ratio).toInt()
+    // Change background height according to water level
+    private fun backgroundColor() {
+        val screenHeight = Resources.getSystem().displayMetrics.heightPixels
+        val ratio = targetWater / 3.0
+        val height = (screenHeight * ratio).toInt()
 
-        var params = binding.background.layoutParams
+        val params = binding.background.layoutParams
         params.height = height
         binding.background.layoutParams = params
-  }
+    }
 
-    fun drinkWater(bottle:Double){
+    // Add target water and apply changes to ui
+    private fun drinkWater(bottle: Double) {
         targetWater += bottle
         backgroundColor()
         textChange()
     }
 
-    fun textChange(){
+    // Change text acording to waterlevel
+    private fun textChange() {
         binding.apply {
             val water = ((3.0 - targetWater) * 100.0).roundToInt() / 100.0
-            when (targetWater){
+            when (targetWater) {
                 0.0 -> {
                     header1.text = "Merhaba! \nBugün su içtin mi?"
-                    header2.text = "Bugünkü su ihtiyacını karşılamak için \n3 litre daha su içmelisin."
+                    header2.text =
+                        "Bugünkü su ihtiyacını karşılamak için \n3 litre daha su içmelisin."
                 }
                 in 0.2..2.9 -> {
                     header1.text = "Tebrikler! \nDoğru yoldasın."
-                    header2.text = "Bugünkü su ihtiyacını karşılamak için \n$water litre daha su içmelisin."
+                    header2.text =
+                        "Bugünkü su ihtiyacını karşılamak için \n$water litre daha su içmelisin."
                 }
-                in 2.9..5.0 -> {
+                in 3.0..5.0 -> {
                     header1.text = "Muhteşem! \nKendine iyi baktın."
                     header2.text = "Bugün vücüdun için gereken su miktarının tamamını karşıladın."
                 }
