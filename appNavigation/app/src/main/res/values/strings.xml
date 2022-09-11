@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">appNavigation</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_background">home background</string>
+    <string name="exercise_chart">Exercise Chart</string>
+    <string name="meditation_chart">Meditation Chart</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="yoga_chart">Yoga Chart</string>
+    <string name="diet_chart">Diet Chart</string>
+    <string name="get_started">Get Started!</string>
+    <string name="yoga">yoga</string>
+    <string name="bg_svg">bg svg</string>
+    <string name="icon">icon</string>
+    <string name="enter_name">Enter name</string>
+    <string name="log_in">Log in</string>
+</resources>
