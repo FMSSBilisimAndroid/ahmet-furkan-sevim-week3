@@ -25,7 +25,7 @@
     </style>
 
     <style name="button">
-        <item name="android:layout_width">374dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:background">@drawable/button_bg</item>
         <item name="android:backgroundTint">#EBEAEC</item>
